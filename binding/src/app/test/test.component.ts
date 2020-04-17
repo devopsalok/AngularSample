@@ -13,6 +13,8 @@ import { Component, OnInit } from '@angular/core';
     <input [disabled]= "isDisabled" id = "{{myID}}" type ="text" value="AdvayaAlok">
     <h2 [style.color]= "hasError ? 'red': 'green'">Style Binding </h2>
     <h2 [ngStyle]= "titleStyles"> Style Binding 2 </h2>
+    <button (click)="onClick($event)">Click Me</button>
+    {{greeting}}
     `,
   styles: []
   // tslint:disable-next-line:jsdoc-format
@@ -36,9 +38,15 @@ export class TestComponent implements OnInit {
     color: 'blue',
     fontStyle: 'italic',
   };
+  public greeting = "";
   constructor() { }
 
   ngOnInit() {
   }
+  onClick(event) {
+    console.log(event);
+    this.greeting = 'Welcome to AdvayaCloudHub Classes';
+  }
+
 
 }
